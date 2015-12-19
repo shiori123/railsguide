@@ -1,0 +1,29 @@
+<h1>Listing ideas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>写真</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to '見る', idea %></td>
+        <td><%= link_to '変える', edit_idea_path(idea) %></td>
+        <td><%= link_to '消す', idea, method: :delete, data: { confirm: '消してもいい？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '追加する', new_idea_path %>

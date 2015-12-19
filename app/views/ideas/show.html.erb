@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @idea.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @idea.description %>
+</p>
+
+<p>
+  <strong>写真:</strong>
+  <%= image_tag(@idea.picture_url, width: 300) if @idea.picture.present? %>
+</p>
+
+<%= link_to '変える', edit_idea_path(@idea) %> |
+<%= link_to '戻る', ideas_path %>
